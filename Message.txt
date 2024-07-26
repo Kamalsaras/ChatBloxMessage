@@ -1,0 +1,58 @@
+-- Create the ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "CommandMenuGui"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create the main frame with transparency
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0.4, 0, 0.3, 0)
+mainFrame.Position = UDim2.new(0.3, 0, 0.35, 0)
+mainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+mainFrame.BackgroundTransparency = 0.5
+mainFrame.BorderSizePixel = 0
+mainFrame.Parent = screenGui
+
+-- Create the title box
+local titleBox = Instance.new("Frame")
+titleBox.Size = UDim2.new(1, 0, 0.2, 0)
+titleBox.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+titleBox.BorderSizePixel = 0
+titleBox.Parent = mainFrame
+
+-- Create the title label
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(1, 0, 1, 0)
+titleLabel.Text = "Important"
+titleLabel.Font = Enum.Font.GothamBold
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.TextScaled = true
+titleLabel.BackgroundTransparency = 1
+titleLabel.Parent = titleBox
+
+-- Create the instructions label
+local instructionsLabel = Instance.new("TextLabel")
+instructionsLabel.Size = UDim2.new(1, -20, 0.6, 0)
+instructionsLabel.Position = UDim2.new(0, 10, 0.3, 0)
+instructionsLabel.Text = "Use command ;openmenu in chat to view the list of commands.\nAnd ;info to view information about them."
+instructionsLabel.Font = Enum.Font.Gotham
+instructionsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+instructionsLabel.TextScaled = true
+instructionsLabel.BackgroundTransparency = 1
+instructionsLabel.TextWrapped = true
+instructionsLabel.Parent = mainFrame
+
+-- Create the close button
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0.2, 0, 0.2, 0)
+closeButton.Position = UDim2.new(0.8, 0, 0.8, 0)
+closeButton.Text = "X"
+closeButton.Font = Enum.Font.GothamBold
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.TextScaled = true
+closeButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+closeButton.Parent = mainFrame
+
+-- Function to hide the UI when the close button is clicked
+closeButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
+end)
